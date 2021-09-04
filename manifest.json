@@ -11,7 +11,7 @@
     "upstream": {
         "license": "free",
         "website": "https://example.com",
-        "demo": "https://svg-edit.github.io/svgedit/dist/editor/index.html",
+        "demo": "https://6098683962bf91702907ee33--svgedit.netlify.app/editor/svg-editor.html",
         "admindoc": "https://github.com/SVG-Edit/svgedit/tree/master/docs",
         "code": "https://github.com/SVG-Edit/svgedit"
     },
