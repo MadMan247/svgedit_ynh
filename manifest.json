@@ -3,11 +3,18 @@
     "id": "svgedit",
     "packaging_format": 1,
     "description": {
-        "en": "Web-based SVG drawing editor working on any modern browser.",
-        "fr": "Édition de SVG en ligne fonctionnent avec tout navigateur moderne."
+        "en": "Web-based SVG drawing editor working on any modern browser",
+        "fr": "Édition de SVG en ligne fonctionnent avec tout navigateur moderne"
     },
-    "url": "https://github.com/SVG-Edit/svgedit",
     "version": "5.1.0~ynh1",
+    "url": "https://github.com/SVG-Edit/svgedit",
+    "upstream": {
+        "license": "free",
+        "website": "https://example.com",
+        "demo": "https://svg-edit.github.io/svgedit/dist/editor/index.html",
+        "admindoc": "https://github.com/SVG-Edit/svgedit/tree/master/docs",
+        "code": "https://github.com/SVG-Edit/svgedit"
+    },
     "license": "MIT",
     "maintainer": {
         "name": "ljf",
@@ -18,7 +25,7 @@
         "name": "Luc Didry"
     },
     "requirements": {
-        "yunohost": ">> 4.1.7"
+        "yunohost": ">> 4.2.4"
     },
     "multi_instance": true,
     "services": [

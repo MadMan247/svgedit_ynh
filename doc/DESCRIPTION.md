@@ -1,0 +1,1 @@
+SVG-edit is a fast, web-based, JavaScript-driven SVG drawing editor that works in any modern browser.

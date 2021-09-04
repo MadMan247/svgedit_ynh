@@ -59,6 +59,14 @@ ynh_clean_setup () {
 ynh_abort_if_errors
 
 #=================================================
+# CREATE DEDICATED USER
+#=================================================
+ynh_script_progression --message="Making sure dedicated system user exists..." --weight=1
+
+# Create a dedicated user (if not existing)
+ynh_system_user_create --username=$app --home_dir="$final_path"
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 
@@ -71,6 +79,10 @@ then
 	ynh_setup_source --dest_dir="$final_path"
 fi
 
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
+
 #=================================================
 # UPGRADE DEPENDENCIES
 #=================================================
@@ -79,26 +91,11 @@ ynh_script_progression --message="Upgrading dependencies..." --weight=6
 ynh_install_app_dependencies $pkg_dependencies
 
 #=================================================
-# CREATE DEDICATED USER
-#=================================================
-ynh_script_progression --message="Configuring system user..." --weight=3
-
-# Create a system user
-ynh_system_user_create --username=$app
-
-#=================================================
 # CUSTOM INSTRUCTION
 #=================================================
 
 ynh_configure svgedit-config-iife.js "$final_path/svgedit-config-iife.js"
 ynh_configure svgedit-custom.css "$final_path/svgedit-custom.css"
-
-#=================================================
-# SECURE FILES AND DIRECTORIES
-#=================================================
-
-# Set permissions on app files
-chown -R $app: $final_path
 
 #=================================================
 # RELOAD NGINX
